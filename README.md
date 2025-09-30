@@ -1,65 +1,65 @@
 # PA-2-DE-BORJA
 
-Problem #1
-- **Normalization**
+This Python script contains two problems involving NumPy arrays, focusing on normalization and filtering based on divisibility.
+---
+## Problem #1: Normalization
 
-1. A 5x5 array (x) is created with random floating-point numbers by using np.random.rand()
-2. Element-wise, the mean and standard deviation of the integers inside the array are calculated using .mean() and .std()
-3. The array is NORMALIZED by subtracting the mean and dividing by the standard deviation
-4. The normalized array is then saved to a .npy file using np.save()
+1. A 5x5 array `x` is created with random floats between 0 and 1 using `np.random.rand()`.
+2. The mean and standard deviation of all elements are computed with `.mean()` and `.std()`.
+3. The array is normalized by subtracting the mean and dividing by the standard deviation.
+4. The normalized array is saved to a `.npy` file using `np.save()`.
 
 ```
 import numpy as np
 
-## Create an array that will generate random numbers between 0 and 1
+# Create a 5x5 array of random floats between 0 and 1
 x = np.random.rand(5,5)
-print ("Original Array X:\n", x)
+print("Original Array X:\n", x)
 
-## .mean() is utilized to compute the average of the elements
+# Compute mean and standard deviation
 x_mean = x.mean()
-print ("\nMean:", x_mean)
+print("\nMean:", x_mean)
 
-## .std() is utilized to compute the dispersion of the data set
 x_std = x.std()
-print ("Standard Deviation:", x_std)
-## Creating a normalized ndarray
-x_normalized = (x - x_mean) / x_std
-print ("\nNormalized Array X:\n", x_normalized)
+print("Standard Deviation:", x_std)
 
-## Saving the result as an .npy file
+# Normalize the array
+x_normalized = (x - x_mean) / x_std
+print("\nNormalized Array X:\n", x_normalized)
+
+# Save the normalized array
 np.save("x_normalized.npy", x_normalized)
-print ("\nSAVED NORMALIZED NDARRAY as X_normalized.npy")
+print("\nSAVED NORMALIZED NDARRAY as x_normalized.npy")
 ```
 
-Problem #2
-- **Divisible by 3**
+## Problem #2: Divisible by 3
 
-1. An array of positive integers from 1 to 100 is created using np.arange()
-2. Each number is then squared to create a new array
-3. The new array is reshaped to a 10x10 matrix using np.reshape()
-4. The modulo operator % is used to determine all elements divisible by 3
-5. The filtered results are saved to a file named div_by_3.npy using np.save().
+1. An array of integers from 1 to 100 is created using np.arange().
+2. Each number is squared to create a new array.
+3. The array is reshaped into a 10x10 matrix using .reshape().
+4. Elements divisible by 3 are filtered using the modulo operator %.
+5. The filtered elements are saved to a .npy file using np.save().
 
 ```
 import numpy as np
 
-## We start out by creating an array 
-numbers = np.arange(1,101)
+# Create an array of integers from 1 to 100
+numbers = np.arange(1, 101)
 
-## The first 100 positive integers are squared 
+# Square each number
 square = numbers ** 2
 
-## The array io then reshaped into a 10x10 matrix
+# Reshape into 10x10 matrix
 a = square.reshape(10, 10)
-print ("\nMatrix A (10x10)\n")
-print (a)
+print("\nMatrix A (10x10)\n")
+print(a)
 
-## Modulo is utilized to reveal the integers divisible by 3 in the matrix
+# Filter elements divisible by 3
 div_by_3 = a[a % 3 == 0]
-print ("\n\nALL ELEMENTS DIVISIBLE BY 3\n")
-print (div_by_3)
+print("\n\nALL ELEMENTS DIVISIBLE BY 3\n")
+print(div_by_3)
 
-## Saving the result as an .npy file
+# Save the result
 np.save("div_by_3.npy", div_by_3)
-print ('\nResult Saved as div_by_3.npy')
+print('\nResult Saved as div_by_3.npy')
 ```
