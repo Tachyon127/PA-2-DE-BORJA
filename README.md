@@ -58,11 +58,9 @@ print(a)
 div_by_3 = a[a % 3 == 0]
 print("\n\nALL ELEMENTS DIVISIBLE BY 3\n")
 print(div_by_3)
-```
----VERSION 2---
-
 
 # Save the result
 np.save("div_by_3.npy", div_by_3)
 print('\nResult Saved as div_by_3.npy')
 ```
+---VERSION 2---
